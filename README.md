@@ -22,13 +22,8 @@ Crud::query('select count(*) from posts')->fetchColumn(); // Satır sayısı
 Crud::insert('posts', ['title' => 'lorem lipsum', 'body' => 'foo bar']);
 // INSERT INTO posts (title,body) VALUES (?,?)
 
-Crud::insert('posts', [
-  'slug' => 'lorem-lipsum', 
-  'title' => 'Lorem lipsum
-], [
-  'slug' => 'lorem-lipsum-2'
-]);
-// INSERT INTO posts (slug) VALUES (?) ON DUPLICATE KEY UPDATE slug=?
+Crud::insert('posts', ['slug' => 'lorem-lipsum', 'title' => 'Lorem lipsum'], ['slug' => 'lorem-lipsum-2']);
+// INSERT INTO posts (slug,title) VALUES (?,?) ON DUPLICATE KEY UPDATE slug=?
 ```
 
 # Veri güncelleme
